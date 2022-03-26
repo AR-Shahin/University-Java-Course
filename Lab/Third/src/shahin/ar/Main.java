@@ -14,7 +14,8 @@ public class Main{
         self.registerNewTeachers();
 //        System.out.println(self.uni.getStudents().get(0).address);
 //        self.uni.displayAllTeachers();
-        self.uni.displaySingleTeacher(self.uni.findSecondTeacherSalaryByRank("Java","MIN"));
+//         self.uni.findSecondMaxMinTeacherSalaryByRank("Java","MAX");
+        self.uni.sortTeacherAccordingToJoiningDate("senior");
 //        System.out.println(self.uni.findStudentsByBatch(500).size());
 //        self.uni.displayAllStudents(self.uni.findSingleStudent("s@mail.com"));
 //          self.uni.displaySingleStudent(self.uni.findMaxMinCgpaStudentByBatch(42,"MIN"));
@@ -43,9 +44,9 @@ public class Main{
         Teacher ashfaq = new Teacher("Ashfaq","M",29,"123","Dhaka",102,"Java","as@mail.com","2022","CSE",15000);
 
         Teacher rajon = new Teacher("Rajon Bardhan","M",30,"123","Cumilla",103,"Algorithm","rb@mail.com","2016","CSE",160000);
-        Teacher shahin = new Teacher("AR Shahin","M",30,"1233","Dhaka",1033,"Java","ar@mail.com","2022","CSE",8000);
-        Teacher tanzim = new Teacher("Tanzim","M",20,"12333","Dhaka",10323,"Java","tn@mail.com","2022","CSE",5000);
-        Teacher teachers[] = {alamin,ashfaq,rajon,shahin};
+        Teacher shahin = new Teacher("AR Shahin","M",30,"1233","Dhaka",1033,"Java","ar@mail.com","2021","CSE",8000);
+        Teacher tanzim = new Teacher("Tanzim","M",20,"12333","Dhaka",10323,"Java","tn@mail.com","2023","CSE",5000);
+        Teacher teachers[] = {alamin,ashfaq,rajon,shahin,tanzim};
         uni.setTeachers(teachers);
     }
 }

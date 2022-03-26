@@ -3,6 +3,8 @@ package shahin.ar;
 import helper.Helper;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 
 public class University extends Helper {
@@ -160,7 +162,7 @@ public class University extends Helper {
     }
 
 
-    public ArrayList<Teacher> findTeacherByRank(String rank){
+    public ArrayList<Teacher> findTeachersByRank(String rank){
         ArrayList<Teacher> temp = new ArrayList<>();
         for (Teacher teacher : this.teachers){
             if(teacher.getRank() == rank){
@@ -170,9 +172,9 @@ public class University extends Helper {
         return temp;
     }
 
-    public Teacher findTeacherByRank(String rank,String flag){
+    public Teacher findTeacherMaxMinSalaryByRank(String rank,String flag){
         ArrayList<Teacher> temp = new ArrayList<>();
-        temp = this.findTeacherByRank(rank);
+        temp = this.findTeachersByRank(rank);
         Teacher singleMaxTeacher;
         Teacher singleMinTeacher;
         singleMaxTeacher = temp.get(0);
@@ -197,22 +199,70 @@ public class University extends Helper {
             return singleMinTeacher;
         }
     }
-    // Task baki ache second max salary
-//    public Teacher findSecondTeacherSalaryByRank(String rank,String flag){
-//
-//        Teacher tempTeacher, secondTeacher;
-//
-//        tempTeacher = this.findTeacherByRank(rank);
-//        secondTeacher = tempTeacher;
-//        double max = tempTeacher.getSalary();
-//        for (Teacher teacher : this.teachers){
-//            if(teacher.getSalary() > max && teacher != tempTeacher){
-//                max = teacher.getSalary();
-//                secondTeacher = teacher;
-//            }
-//        }
-//
-//        return secondTeacher;
-//    }
 
+    private ArrayList<Teacher> getAllTeachersExceptOne(Teacher teach,String rank){
+        ArrayList<Teacher> tempTeachers = new ArrayList<>();
+
+        for (Teacher teacher : this.teachers){
+
+            if(teach != teacher && rank == teacher.getRank()){
+                tempTeachers.add(teacher);
+            }
+        }
+        return tempTeachers;
+    }
+    // Task baki ache second max salary
+    public void findSecondMaxMinTeacherSalaryByRank(String rank,String flag){
+
+        ArrayList<Teacher> tempTeachers;
+
+        Teacher firstMaxMinTeacher;
+
+
+        firstMaxMinTeacher = this.findTeacherMaxMinSalaryByRank(rank,flag);
+        Teacher secondMaxTeacher;
+        Teacher secondMinTeacher;
+        tempTeachers = this.getAllTeachersExceptOne(firstMaxMinTeacher,rank);
+
+        double max = tempTeachers.get(0).getSalary();
+        double min = tempTeachers.get(0).getSalary();
+
+        for (Teacher teacher : tempTeachers){
+            if(max < teacher.getSalary()){
+                max = teacher.getSalary();
+                secondMaxTeacher = teacher;
+            println(teacher.getName());
+            }
+            if(min > teacher.getSalary()){
+                min = teacher.getSalary();
+                secondMinTeacher = teacher;
+            }
+        }
+
+
+//        if(flag == "MAX"){
+//            println(secondMaxTeacher.getName());
+//        }else{
+//            println(secondMaxTeacher.getName());
+//        }
+    }
+
+
+    public void sortTeacherAccordingToJoiningDate(String flag){
+        ArrayList<Teacher> tempList = new ArrayList<>();
+
+        tempList = this.teachers;
+
+        flag = flag.toLowerCase();
+
+        if(flag == "senior"){
+            tempList.sort(Comparator.comparing(Teacher::getJoiningDate));
+        }else {
+            // Sort in reversed order
+           tempList.sort(Comparator.comparing(Teacher::getJoiningDate).reversed());
+        }
+
+        this.displaySingleTeacher(tempList.get(0));
+
+    }
 }
