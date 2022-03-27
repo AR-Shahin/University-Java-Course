@@ -64,6 +64,8 @@ public class University extends Helper {
     public ArrayList<Student> findStudents(String dept){
         ArrayList<Student> temp = new ArrayList<>();
         for (Student student : this.students){
+//            println(student.getDepartment().toLowerCase() == dept.toLowerCase() ? "d" : "D");
+//            println(student.getDepartment().toLowerCase());
             if(student.getDepartment() == dept){
                 temp.add(student);
             }

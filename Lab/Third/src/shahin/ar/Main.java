@@ -1,24 +1,53 @@
 package shahin.ar;
 
 
+import helper.Helper;
+
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class Main{
+public class Main extends Helper {
     public University uni = new University();
 
+    // 6 , 10
     public static void main(String[] args) {
         Main self = new Main();
         self.registerNewStudents();
         self.registerNewTeachers();
-//        System.out.println(self.uni.getStudents().get(0).address);
-//        self.uni.displayAllTeachers();
-//         self.uni.findSecondMaxMinTeacherSalaryByRank("Java","MAX");
-        self.uni.sortTeacherAccordingToJoiningDate("senior");
-//        System.out.println(self.uni.findStudentsByBatch(500).size());
-//        self.uni.displayAllStudents(self.uni.findSingleStudent("s@mail.com"));
-//          self.uni.displaySingleStudent(self.uni.findMaxMinCgpaStudentByBatch(42,"MIN"));
+
+        self.println("------Find Students by batch-----------");
+        self.uni.displayAllStudents(self.uni.findStudents(50));
+
+        self.println("-------Find Students by department----------");
+        self.uni.displayAllStudents(self.uni.findStudents("CSE"));
+
+        self.println("--------Find Students by batch and city---------");
+        self.uni.displayAllStudents(self.uni.findStudents(50,"Dhaka"));
+
+        self.println("--------Find Students by Nationality---------");
+        self.uni.displayAllStudents(self.uni.findStudentsByNationality("BD"));
+
+        self.println("--------Find Students by Gender---------");
+        self.uni.displayAllStudents(self.uni.findStudentsByGender("F"));
+
+        self.println("--------Find Single Student by ID---------");
+        self.uni.displayAllStudents(self.uni.findSingleStudent(101));
+
+        self.println("--------Find Single Student by Email---------");
+        self.uni.displayAllStudents(self.uni.findSingleStudent("s@mail.com"));
+
+        self.println("--------Find Maximum Student's CGPA by Batch---------");
+        self.uni.displaySingleStudent(self.uni.findMaxMinCgpaStudentByBatch(50,"MAX"));
+
+        self.println("-------Find Teachers by rank----------");
+        self.uni.displayAllTeachers(self.uni.findTeachersByRank("Java"));
+
+        self.println("-------Find Teacher Max Salary by Rank----------");
+        self.uni.displaySingleTeacher(self.uni.findTeacherMaxMinSalaryByRank("Java","MAX"));
+
+        self.println("-------sortTeacherAccordingToJoiningDate----------");
+        self.uni.sortTeacherAccordingToJoiningDate("junior");
 
     }
 
