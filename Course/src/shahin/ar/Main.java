@@ -6,24 +6,43 @@ import java.util.Scanner;
 
 public class Main {
 
+//    static {
+//        System.out.println("Static Block!");
+//    }
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
-
-        MathematicalOperation math1 = new MathematicalOperation();
-        MathematicalOperation math2 = new MathematicalOperation();
-
-        math1.num1 = 100;
-        math1.num2 = 50;
-
-        math2.num1 = 10;
-        math2.num2 = 100;
-
-       int temp =  math1.add(10,10);
+        int a ,b;
+        a = sc.nextInt();
+        b = sc.nextInt();
 
 
-       System.out.println(temp);
+        MathematicalOperation math1 = new MathematicalOperation(a,b);
 
+        System.out.println(math1.add());
+        System.out.println(math1.sub());
+        System.out.println(math1.multify());
+        System.out.println(math1.div());
+
+
+//        System.out.println("Main Block!");
+//       System.out.println(temp);
+
+//        Person p1 = new Person();
+//        Person p2 = new Person();
+//
+//        p1.x = 10;
+//        p2.x = 20;
+//
+//        p1.y = 1000;
+//
+//        System.out.println(Person.y);
+//        System.out.println(p2.y);
 
     }
+}
+
+ class Person{
+    int x;
+    static int y = 100;
 }
