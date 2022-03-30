@@ -3,15 +3,19 @@ package shahin.ar;
 
 import helper.Helper;
 
+import java.io.File;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Main extends Helper {
+
     public University uni = new University();
 
     // 6 , 10
+
     public static void main(String[] args) {
+
         Main self = new Main();
         self.registerNewStudents();
         self.registerNewTeachers();
@@ -78,4 +82,8 @@ public class Main extends Helper {
         Teacher teachers[] = {alamin,ashfaq,rajon,shahin,tanzim};
         uni.setTeachers(teachers);
     }
+
+
 }
+
+

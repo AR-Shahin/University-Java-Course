@@ -117,6 +117,16 @@ public class University extends Helper {
         }
         return temp;
     }
+
+    public ArrayList<Student> findStudentBySubString(String sub){
+        ArrayList<Student> temp = new ArrayList<>();
+        for (Student student : this.students){
+            if(student.getName().contains(sub)){
+                temp.add(student);
+            }
+        }
+        return temp;
+    }
     public Student findMaxMinCgpaStudentByBatch(int batch,String flag){
         ArrayList<Student> temp = new ArrayList<>();
         Student singleMaxStudent;
@@ -174,6 +184,24 @@ public class University extends Helper {
         return temp;
     }
 
+    public Teacher findTeacher(int id){
+        Teacher temp = null;
+        for (Teacher teacher : this.teachers){
+            if(teacher.getId() == id){
+                temp = teacher;
+            }
+        }
+        return temp;
+    }
+    public Teacher findTeacher(String email){
+        Teacher temp = null;
+        for (Teacher teacher : this.teachers){
+            if(teacher.getEmail() == email){
+                temp = teacher;
+            }
+        }
+        return temp;
+    }
     public Teacher findTeacherMaxMinSalaryByRank(String rank,String flag){
         ArrayList<Teacher> temp = new ArrayList<>();
         temp = this.findTeachersByRank(rank);
@@ -213,6 +241,7 @@ public class University extends Helper {
         }
         return tempTeachers;
     }
+
     // Task baki ache second max salary
     public void findSecondMaxMinTeacherSalaryByRank(String rank,String flag){
 
@@ -222,7 +251,7 @@ public class University extends Helper {
 
 
         firstMaxMinTeacher = this.findTeacherMaxMinSalaryByRank(rank,flag);
-        Teacher secondMaxTeacher;
+        Teacher secondMaxTeacher = null;
         Teacher secondMinTeacher;
         tempTeachers = this.getAllTeachersExceptOne(firstMaxMinTeacher,rank);
 
@@ -242,11 +271,11 @@ public class University extends Helper {
         }
 
 
-//        if(flag == "MAX"){
-//            println(secondMaxTeacher.getName());
-//        }else{
-//            println(secondMaxTeacher.getName());
-//        }
+        if(flag == "MAX"){
+            println(secondMaxTeacher.getName());
+        }else{
+            println(secondMaxTeacher.getName());
+        }
     }
 
 
