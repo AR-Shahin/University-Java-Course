@@ -10,14 +10,15 @@ public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        int a,b;
-        double avg;
-        a = sc.nextInt();
-        b = sc.nextInt();
+        float base,height;
+        double area;
+        base = sc.nextFloat();
+        height = sc.nextFloat();
 
-        avg = (a+b) / 2.0;
+        area = 0.5 * base * height;
 
-        System.out.println("Average : " + avg);
+
+        System.out.println("Area : " + area);
 
 
     }
