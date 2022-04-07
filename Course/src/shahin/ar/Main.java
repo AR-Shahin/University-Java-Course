@@ -7,33 +7,38 @@ import java.util.Scanner;
 public class Main {
 
 
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
 
-        int id,evn = 0,odd = 0;
+    public static void main(String args[]){
+    int day = 10;
 
-       id = sc.nextInt();
+    switch (day){
+        case 1:
+            System.out.println("Sunday");
+            break;
+        case 2:
+            System.out.println("Monday");
+            break;
+        case 3:
+            System.out.println("Tuesday");
+            break;
+        case 4:
+            System.out.println("Wednesday");
+            break;
+        case 5:
+            System.out.println("Thursday");
+            break;
+        case 6:
+            System.out.println("Friday");
+            break;
+        case 7:
+            System.out.println("Saturday");
+            break;
+        default:
+            System.out.println("Invalid Key");
 
-        while (id != 0){ // 12345
-            int rem = id % 10; // 5
+    }
 
-            if(rem % 2 == 0){ // 5 % 2 ==
-                evn ++;
-            }else {
-                odd++;
-            }
-            id = id / 10; // 12345 / 10
-        }
 
-        if(evn > odd){
-            System.out.println("Even Win");
-        }
-        if(evn < odd){
-            System.out.println("ODD Win");
-        }
-        if(evn == odd){
-            System.out.println("Tie");
-        }
     }
 }
 
