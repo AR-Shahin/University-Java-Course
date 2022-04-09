@@ -17,7 +17,8 @@ public class Main extends Helper {
     public static void main(String[] args) {
 
         Main self = new Main();
-        self.uni.setStudentInfoFile();
+        self.uni.setStudentInfoFile("\nSadek,M,21,222222,Dhk,105,tmd@mail.com,CSE,50,4.88");
+        self.uni.getStudentInfoFile();
 //        self.registerNewStudents();
 //        self.registerNewTeachers();
 //

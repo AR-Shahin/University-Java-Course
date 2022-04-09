@@ -3,6 +3,7 @@ package shahin.ar;
 import helper.Helper;
 
 import java.io.File;
+import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -298,12 +299,29 @@ public class University extends Helper implements AdministratorTaskInterface{
         this.displaySingleTeacher(tempList.get(0));
     }
 
-    public void getStudentInfoFile(){
+    public void setStudentInfoFile(String data){
+        File file = new File("students.csv");
 
+        if(!file.exists()){
+            try{
+                file.createNewFile();
+            }catch (Exception e){
+                println(e.getMessage());
+            }
+        }else{
+            try{
+                FileWriter fileWriter = new FileWriter("students.csv",true);
+//                fileWriter.append("Omi,M,20,222222,Cumilla,103,o@mail.com,CSE,50,3.88");
+                fileWriter.append(data);
+                fileWriter.close();
+            }catch (Exception e){
+                println(e.getMessage());
+            }
+        }
     }
     public void setTeacherInfoFile(){}
 
-    public void setStudentInfoFile(){
+    public void getStudentInfoFile(){
         File file = new File("students.csv");
 
         try{
