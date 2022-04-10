@@ -319,7 +319,25 @@ public class University extends Helper implements AdministratorTaskInterface{
             }
         }
     }
-    public void setTeacherInfoFile(){}
+    public void setTeacherInfoFile(String data){
+        File file = new File("teachers.csv");
+
+        if(!file.exists()){
+            try{
+                file.createNewFile();
+            }catch (Exception e){
+                println(e.getMessage());
+            }
+        }else{
+            try{
+                FileWriter fileWriter = new FileWriter("teachers.csv",true);
+                fileWriter.append(data);
+                fileWriter.close();
+            }catch (Exception e){
+                println(e.getMessage());
+            }
+        }
+    }
 
     public void getStudentInfoFile(){
         File file = new File("students.csv");
@@ -353,5 +371,36 @@ public class University extends Helper implements AdministratorTaskInterface{
 
         this.students.add(newStudent);
     }
-    public void getTeacherInfoFile(){}
+    protected void setTeacherIntoListFromFile(String teacher){
+
+        String name = teacher.split(",")[0];
+        String gender = teacher.split(",")[1];
+        int age = Integer.parseInt(teacher.split(",")[2]);
+        String phone = teacher.split(",")[3];
+        String address = teacher.split(",")[4];
+        int id = Integer.parseInt(teacher.split(",")[5]);
+        String rank = teacher.split(",")[6];
+        String email = teacher.split(",")[7];
+        String joiningDate = teacher.split(",")[8];
+        String department = teacher.split(",")[9];
+        double salary = Double.parseDouble(teacher.split(",")[10]);
+
+        Teacher newTeacher = new Teacher(name,gender,age,phone,address,id,rank,email,joiningDate,department,salary);
+
+        this.teachers.add(newTeacher);
+    }
+    public void getTeacherInfoFile(){
+        File file = new File("teachers.csv");
+
+        try{
+            Scanner sc = new Scanner(file);
+            while (sc.hasNextLine()){
+                String teacher = sc.nextLine();
+                this.setTeacherIntoListFromFile(teacher);
+
+            }
+        }catch (Exception e){
+            println(e.getMessage());
+        }
+    }
 }
