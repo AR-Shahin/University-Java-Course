@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Third">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/Third.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

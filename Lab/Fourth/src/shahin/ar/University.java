@@ -37,6 +37,7 @@ public class University extends Helper implements AdministratorTaskInterface{
     }
 
     public void displaySingleStudent(Student student){
+        this.saveDataInFile(student.name  + "," + student.getBatch() + "," + student.getDepartment() + "," + student.getCgpa()+"\n");
         println(student.name  + " " + student.getBatch() + " " + student.getDepartment() + " " + student.getCgpa());
     }
     public void displayAllStudents(){
@@ -46,12 +47,14 @@ public class University extends Helper implements AdministratorTaskInterface{
     }
     public void displayAllStudents(Student students[]){
         for(Student student : students){
+            this.saveDataInFile(student.name  + "," + student.getBatch() + "," + student.getDepartment() + "," + student.getCgpa()+"\n");
             println(student.name  + " " + student.getBatch() + " " + student.getDepartment());
         }
     }
 
     public void displayAllStudents(ArrayList<Student> students){
         for(Student student : students){
+            this.saveDataInFile(student.name  + "," + student.getBatch() + "," + student.getDepartment() + "," + student.getCgpa()+"\n");
             println(student.name  + " " + student.getBatch() + " " + student.getDepartment());
         }
     }
@@ -401,6 +404,26 @@ public class University extends Helper implements AdministratorTaskInterface{
             }
         }catch (Exception e){
             println(e.getMessage());
+        }
+    }
+
+    public void saveDataInFile(String data){
+        File file = new File("output.csv");
+
+        if(!file.exists()){
+            try{
+                file.createNewFile();
+            }catch (Exception e){
+                println(e.getMessage());
+            }
+        }else{
+            try{
+                FileWriter fileWriter = new FileWriter("output.csv",true);
+                fileWriter.append(data);
+                fileWriter.close();
+            }catch (Exception e){
+                println(e.getMessage());
+            }
         }
     }
 }

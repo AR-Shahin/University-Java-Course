@@ -17,11 +17,12 @@ public class Main extends Helper {
     public static void main(String[] args) {
 
         Main self = new Main();
-//        self.uni.setStudentInfoFile("\nSadek,M,21,222222,Dhk,105,tmd@mail.com,CSE,50,4.88");
-//        self.uni.getStudentInfoFile();
-        self.uni.setTeacherInfoFile("Shahin,M,30,123,Dhaka,104,Java,ar@mail.com,2022,CSE,10000\n");
-        self.uni.getTeacherInfoFile();
-        self.uni.displaySingleTeacher(self.uni.findTeacher(104));
+//        self.uni.setStudentInfoFile("ooo,F,21,136,Dhk,107,125@mail.com,CSE,52,2.88\n");
+        self.uni.getStudentInfoFile();
+        self.uni.saveDataInFile("Shahin,55,BBA,3.63\n");
+//        self.uni.setTeacherInfoFile("Shahin,M,30,123,Dhaka,104,Java,ar@mail.com,2022,CSE,10000\n");
+//        self.uni.getTeacherInfoFile();
+//        self.uni.displaySingleTeacher(self.uni.findTeacher(104));
 //        System.out.println(self.uni.getTeachers().size());
 //        self.registerNewStudents();
 //        self.registerNewTeachers();

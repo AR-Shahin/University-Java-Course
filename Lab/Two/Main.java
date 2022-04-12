@@ -26,7 +26,7 @@ public class Main {
         help.print("Maximum Value of Array : " + math.getMaxValue());
         help.print("Minimum Value, of Array : " + math.getMinValue());
         math.powerOfEachElements(3);
-        System.out.println("")
+        System.out.println("");
         StringOperation str = new StringOperation();
         str.setString("ars");
         // help.print(str.reverseString());
