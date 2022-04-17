@@ -9,24 +9,29 @@ public class Main {
 
     public static void main(String args[]){
 
-        DCircle dc = new DCircle();
 
-        double area = dc.myCalculate(2.00);
+//        for(int i =1;i<=5;i++){ // Outer Loop
+//            System.out.println("Outer i " + i);
+//            for (int j = 1;j<=3;j++){ // Inner Loop
+//                System.out.println("Inner j " + j);
+//            }
+//        }
 
-//        System.out.println(area);
+        double sum = 0;
+        for(int i =1;i<=5; i++ ){
+            sum += (i * i);
+        }
+        System.out.println(sum);
 
-//        OneCalculate oc = new OneCalculate();
-//
-//        oc.calculation(2);
-        int a , b,c;
-        Scanner sc = new Scanner(System.in);
-        a = sc.nextInt();
-        b = sc.nextInt();
-        c = sc.nextInt();
+//        while (i <= 5){
+//            System.out.println("i = " + i);
+//            i++;
+//        }
 
-        MyTriangle mt = new MyTriangle(a,b,c);
-
-        System.out.println(mt.myArea());
+//        do{
+//            System.out.println("Default");
+//            i++;
+//        } while (i <= 5);
     }
 
 
