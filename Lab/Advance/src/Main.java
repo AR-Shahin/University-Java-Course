@@ -1,17 +1,16 @@
-
+import thread.ThreadOne;
 
 public class Main {
     public static void main(String[] args) {
-    System.out.println(fact(5));
+
+        System.out.println("Program Start!");
+        ThreadOne th1 = new ThreadOne("th1");
+        ThreadOne th2 = new ThreadOne("th2");
+        System.out.println("Program End!");
+
     }
 
-    public static int fact(int n){
-        if(n == 1){
-            return 1;
-        }else{
-            return n * fact(n-1);
-        }
-    }
+
 
 
 }
