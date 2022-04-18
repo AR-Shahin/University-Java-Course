@@ -9,29 +9,14 @@ public class Main {
 
     public static void main(String args[]){
 
+        int n = 4;
 
-//        for(int i =1;i<=5;i++){ // Outer Loop
-//            System.out.println("Outer i " + i);
-//            for (int j = 1;j<=3;j++){ // Inner Loop
-//                System.out.println("Inner j " + j);
-//            }
-//        }
-
-        double sum = 0;
-        for(int i =1;i<=5; i++ ){
-            sum += (i * i);
+        for(int row = 1; row <=n; row++){
+            for(int col = 1; col <=n; col++){
+                System.out.print("* ");
+            }
+            System.out.print("\n");
         }
-        System.out.println(sum);
-
-//        while (i <= 5){
-//            System.out.println("i = " + i);
-//            i++;
-//        }
-
-//        do{
-//            System.out.println("Default");
-//            i++;
-//        } while (i <= 5);
     }
 
 
