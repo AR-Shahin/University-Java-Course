@@ -9,14 +9,14 @@ public class Main {
 
     public static void main(String args[]){
 
-        int n = 4;
+        int n = 5;
 
-        for(int row = 1; row <=n; row++){
-            for(int col = 1; col <=row; col++){
-                System.out.print("* ");
-            }
-            System.out.print("\n");
+        int sum = 1;
+        for (int i = 1; i <= n; i++) {
+            sum *= i;
         }
+
+        System.out.println(sum);
     }
 
 
