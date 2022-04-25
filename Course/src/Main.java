@@ -8,11 +8,19 @@ public class Main {
 
         int n = 100;
 
-        String result = "";
+//        String result = "";
+//
+//        result = isPrime(n) ? "Strong" : "Not Strong!";
+//
+//        System.out.println(result);
 
-        result = isPrime(n) ? "Strong" : "Not Strong!";
-
-        System.out.println(result);
+        int lb = 1;
+        int ub = 200;
+        for(int i = lb;i<=ub;i++){
+            if(isStrong(i)){
+                System.out.println(i);
+            }
+        }
 
     }
 
@@ -25,7 +33,7 @@ public class Main {
 
         return sum;
     }
-    public static boolean isPrime(int n ){
+    public static boolean isStrong(int n ){
 
         int sum = 0;
         int temp = n;
