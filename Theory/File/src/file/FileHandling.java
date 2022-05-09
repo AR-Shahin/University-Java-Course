@@ -30,15 +30,15 @@ public class FileHandling {
     }
 
     public void getDataFromFile(){
-        File file = new File("output.txt");
+        File file = new File("input.txt");
 
         if(file.exists()){
             try{
                 Scanner sc = new Scanner(file);
                 while (sc.hasNextLine()){
                     String data = sc.nextLine();
-                    System.out.println(data);
-                    this.splitFileData(data,',');
+//                    System.out.println(data);
+                    this.splitFileData(data,' ');
                 }
             }catch (Exception e){
                 System.out.println(e.getMessage());
@@ -61,13 +61,13 @@ public class FileHandling {
         }
 
         for (int i = 0;i<temp.length;i++){
-            this.storeDataInArrayFromFile(Integer.parseInt(temp[i]));
+            this.storeDataInArrayFromFile(temp[i]);
         }
 
     }
     public void test(){
 //        System.out.println(this.stringDatabase.get(0));
-        System.out.println(this.intDatabase.size());
+        System.out.println(this.stringDatabase.size());
     }
 
     public void checkAdult(){
@@ -78,5 +78,17 @@ public class FileHandling {
                 System.out.println("Not Adult!");
             }
         }
+    }
+
+    public void checkHowManyVowels() {
+        int vowel = 0;
+        for (String word : this.stringDatabase) {
+            Character ch = word.charAt(0);
+            if(ch == 'a' || ch == 'e' || ch == 'i' ||ch == 'o' || ch == 'u'){
+                vowel ++;
+            }
+        }
+
+        System.out.println("Vowel is : " + vowel);
     }
 }
