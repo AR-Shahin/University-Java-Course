@@ -11,7 +11,7 @@ class Main {
         int a, b;
         Scanner sc = new Scanner(System.in);
 
-        // help.print("Enter first Number : ");
+         help.print("Enter first Number : ");
         // a = sc.nextInt();
 
         // help.print("Enter second Number : ");
