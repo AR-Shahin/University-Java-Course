@@ -22,6 +22,7 @@ public class FileHandling {
             try{
                 FileWriter fileWriter = new FileWriter("sms.txt",true);
                 fileWriter.write(data);
+                System.out.println(data);
                 fileWriter.close();
             }catch (Exception e){
                 System.out.println(e.getMessage());
@@ -37,8 +38,7 @@ public class FileHandling {
                 Scanner sc = new Scanner(file);
                 while (sc.hasNextLine()){
                     String data = sc.nextLine();
-//                    System.out.println(data);
-                    this.splitFileData(data,' ');
+                    this.splitFileData(data,'\n');
                 }
             }catch (Exception e){
                 System.out.println(e.getMessage());
@@ -61,7 +61,8 @@ public class FileHandling {
         }
 
         for (int i = 0;i<temp.length;i++){
-            this.storeDataInArrayFromFile(temp[i]);
+//            System.out.println(temp[i]);
+            this.storeDataInArrayFromFile((String)temp[i]);
         }
 
     }
@@ -76,6 +77,18 @@ public class FileHandling {
 
     public String searchStudentByID(String id){
         String data = "";
+        this.getDataFromFile();
+        for(String student : this.stringDatabase){
+            String sid = student.split(";")[1];
+int x = Integer.parseInt(sid);
+int y = Integer.parseInt(id);
+            if( x== y){
+
+                data = student;
+            }else{
+                System.out.println(x+y);
+            }
+        }
 
         return data;
     }
