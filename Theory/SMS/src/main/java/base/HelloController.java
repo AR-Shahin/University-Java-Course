@@ -108,7 +108,8 @@ public class HelloController implements Initializable {
             this.setSearchData("");
         }else{
             String data = this.file.searchStudentByID(id);
-            this.setSearchData(data);
+            String formatData = "Name : " + data.split(";")[0] + "\nID : " + data.split(";")[1] + "\nAge : " + data.split(";")[2] + "\nAddress : " + data.split(";")[3];
+            this.setSearchData(formatData);
         }
     }
 
