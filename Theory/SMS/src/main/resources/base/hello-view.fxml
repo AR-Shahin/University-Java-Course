@@ -35,7 +35,7 @@
                               <Label layoutX="58.0" layoutY="72.0" text="ID" />
                               <TextField fx:id="searchID" layoutX="85.0" layoutY="68.0" />
                               <Button layoutX="269.0" layoutY="68.0" mnemonicParsing="false" onAction="#handleSearchOperation" text="Search" />
-                              <Button layoutX="341.0" layoutY="68.0" mnemonicParsing="false" text="Clear" />
+                              <Button layoutX="341.0" layoutY="68.0" mnemonicParsing="false" onAction="#clearSearchWindow" text="Clear" />
                               <TextArea fx:id="searchData" layoutX="89.0" layoutY="98.0" prefHeight="200.0" prefWidth="307.0" />
                            </children>
                         </Pane>
@@ -48,7 +48,8 @@
                               <Label layoutX="54.0" layoutY="14.0" text="Add New Entry">
                                  <font>
                                     <Font size="22.0" />
-                                 </font></Label>
+                                 </font>
+                              </Label>
                               <Label layoutX="45.0" layoutY="56.0" text="Name" />
                               <TextField fx:id="name" layoutX="106.0" layoutY="52.0" />
                               <Label layoutX="45.0" layoutY="88.0" text="ID" />

@@ -38,7 +38,7 @@ public class FileHandling {
                 Scanner sc = new Scanner(file);
                 while (sc.hasNextLine()){
                     String data = sc.nextLine();
-                    this.splitFileData(data,'\n');
+                    this.storeDataInArrayFromFile(data);
                 }
             }catch (Exception e){
                 System.out.println(e.getMessage());
@@ -78,18 +78,19 @@ public class FileHandling {
     public String searchStudentByID(String id){
         String data = "";
         this.getDataFromFile();
+
         for(String student : this.stringDatabase){
             String sid = student.split(";")[1];
-int x = Integer.parseInt(sid);
-int y = Integer.parseInt(id);
-            if( x== y){
-
+            int x = Integer.parseInt(id);
+            int y = Integer.parseInt(sid);
+            if(x == y){
                 data = student;
-            }else{
-                System.out.println(x+y);
             }
         }
+        return data != "" ? data : "Invalid ID!";
+    }
 
-        return data;
+    private void print(Object obj){
+        System.out.println(obj);
     }
 }

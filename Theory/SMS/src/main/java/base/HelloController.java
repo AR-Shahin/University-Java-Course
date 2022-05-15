@@ -55,6 +55,9 @@ public class HelloController implements Initializable {
    @FXML
    private Label notification;
 
+   private void setSearchData(String data){
+       searchData.setText(data);
+   }
     private String generateDataForFile(){
         String data = name.getText() + ";" + id.getText() + ";" + age.getText() + ";" + address.getText() + "\n";
 
@@ -78,6 +81,8 @@ public class HelloController implements Initializable {
     }
    @FXML
    public void showSearchPane(ActionEvent event){
+       this.clearSearchWindow();
+       notification.setText("");
         searchPane.setVisible(true);
         addNewPane.setVisible(false);
    }
@@ -98,9 +103,26 @@ public class HelloController implements Initializable {
 
     @FXML
     public void handleSearchOperation(ActionEvent event){
-        String data = searchID.getText();
-        this.file.searchStudentByID(data);
-
+        String id = searchID.getText();
+        if (id == ""){
+            this.setSearchData("");
+        }else{
+            String data = this.file.searchStudentByID(id);
+            this.setSearchData(data);
+        }
     }
 
+    private void print(Object obj){
+        System.out.println(obj);
+    }
+
+    @FXML
+    public void clearSearchWindow(ActionEvent event){
+        searchData.setText("");
+        searchID.setText("");
+    }
+    private void clearSearchWindow(){
+        searchData.setText("");
+        searchID.setText("");
+    }
 }
