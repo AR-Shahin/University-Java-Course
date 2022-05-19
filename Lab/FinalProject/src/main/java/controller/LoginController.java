@@ -33,20 +33,21 @@ public class LoginController {
 
         this.user.email = email.getText();
         this.user.password = password.getText();
-        String result = this.user.authenticate();
-        if(result.equals("NOT_EXIST")){
-            setNotification("User doesn't exists!!");
+        if(this.user.email == "" || this.user.password == ""){
+            setNotification("Field Must not be Empty!!");
         }else {
-            String role = result.split(";")[6];
-//            print(role);
-            if(role.equals("admin")){
-                this.app.changeScreen(event,"dashboard","Dashboard",true,result);
-            } else if (role.equals("donor")) {
-                this.app.changeScreen(event,"donor_dashboard","Donor dashboard",true,result);
+            String result = this.user.authenticate();
+            if(result.equals("NOT_EXIST")){
+                setNotification("User doesn't exists!!");
+            }else {
+                String role = result.split(";")[6];
+                if(role.equals("admin")){
+                    this.app.changeScreen(event,"dashboard","Dashboard",true,result);
+                } else if (role.equals("donor")) {
+                    this.app.changeScreen(event,"donor_dashboard","Donor dashboard",true,result);
+                }
             }
-//            setNotification(role);
         }
-
     }
 
     @FXML

@@ -3,6 +3,7 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.Pane?>
@@ -12,11 +13,11 @@
    <children>
       <BorderPane prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <left>
-            <Pane fx:id="leftbarPane" prefHeight="200.0" prefWidth="91.0" BorderPane.alignment="CENTER">
+            <Pane fx:id="leftbarPane" prefHeight="200.0" prefWidth="91.0" style="-fx-background-color: #95afc0;" BorderPane.alignment="CENTER">
                <children>
-                  <Button layoutY="74.0" mnemonicParsing="false" onAction="#handleLogout" prefHeight="24.0" prefWidth="75.0" text="Logout" />
-                  <Button layoutY="130.0" mnemonicParsing="false" onAction="#goToDonorScene" prefHeight="24.0" prefWidth="75.0" text="Donors" />
-                  <Button layoutY="102.0" mnemonicParsing="false" onAction="#goToHomeScene" prefHeight="0.0" prefWidth="75.0" text="Home" />
+                  <Button layoutX="1.0" layoutY="74.0" mnemonicParsing="false" onAction="#handleLogout" prefHeight="24.0" prefWidth="89.0" text="Logout" />
+                  <Button layoutX="1.0" layoutY="130.0" mnemonicParsing="false" onAction="#goToDonorScene" prefHeight="24.0" prefWidth="88.0" text="Donors" />
+                  <Button layoutX="1.0" layoutY="102.0" mnemonicParsing="false" onAction="#goToHomeScene" prefHeight="24.0" prefWidth="88.0" text="Home" />
                </children>
             </Pane>
          </left>
@@ -33,7 +34,18 @@
                         <TextArea fx:id="display" layoutY="62.0" prefHeight="339.0" prefWidth="509.0" />
                      </children>
                   </Pane>
-                  <Pane fx:id="donorPane" prefHeight="400.0" prefWidth="509.0" style="-fx-background-color: #c7ecee;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                  <Pane fx:id="donorPane" prefHeight="400.0" prefWidth="509.0" style="-fx-background-color: #c7ecee;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <Label layoutX="155.0" layoutY="23.0" text="Manage Donor">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                        <Button layoutX="361.0" layoutY="64.0" mnemonicParsing="false" onAction="#handleDonorSearchOperation" text="Search" />
+                        <Button layoutX="423.0" layoutY="64.0" mnemonicParsing="false" onAction="#handleDonorClearOperation" text="Clear" />
+                        <TextField fx:id="searchDonor" layoutX="144.0" layoutY="65.0" prefHeight="24.0" prefWidth="217.0" promptText="Search by blood group . . " />
+                        <TextArea fx:id="donorsData" layoutX="1.0" layoutY="98.0" prefHeight="259.0" prefWidth="500.0" />
+                     </children></Pane>
                </children>
             </AnchorPane>
          </center>

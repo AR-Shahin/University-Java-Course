@@ -6,16 +6,22 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
+import model.User;
 
 import java.net.URL;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class DashboardController implements HasData, Initializable {
     private Application app;
+    private User user;
 
     public DashboardController(){
         this.app = new Application();
+        this.user = new User();
     }
     protected String data;
     @FXML
@@ -30,6 +36,14 @@ public class DashboardController implements HasData, Initializable {
     @FXML
     private Pane leftbarPane;
 
+    public void setDonorsData(String data) {
+        this.donorsData.setText(data);
+    }
+
+    @FXML
+    private TextArea donorsData;
+    @FXML
+    private TextField searchDonor;
     @Override
     public void sendData(String data){
         this.data = data;
@@ -59,14 +73,46 @@ public class DashboardController implements HasData, Initializable {
     }
 
     @FXML
-    public void goToDonorScene(ActionEvent event){
+    public void goToDonorScene(ActionEvent event) throws SQLException {
         donorPane.setVisible(true);
         homePane.setVisible(false);
+        ResultSet result = this.user.allDonor();
+        this.modifyDataToDisplay(result);
     }
 
+    protected void modifyDataToDisplay(ResultSet result) throws SQLException {
+        String data = "\n\t\tNot Found....";
+
+        if(result.next()){
+            data = "";
+            data = "Name\t\tEmail\t\tAge\t\tPhone\t\tBlood\n";
+            while (result.next()){
+                data += result.getString(2) + "\t"
+                        + result.getString(3)+ "\t"
+                        + result.getString(5)+ "\t"
+                        + result.getString(6)+ "\t"
+                        + result.getString(7)+ "\n"
+                ;
+                System.out.println(result.getString(2));
+            }
+            this.setDonorsData(data);
+        }else {
+            this.setDonorsData(data);
+        }
+    }
     @FXML
     public void goToHomeScene(ActionEvent event){
         donorPane.setVisible(false);
         homePane.setVisible(true);
+    }
+
+    @FXML
+    void handleDonorClearOperation(ActionEvent event) {
+
+    }
+
+    @FXML
+    void handleDonorSearchOperation(ActionEvent event) {
+
     }
 }

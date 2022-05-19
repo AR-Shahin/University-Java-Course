@@ -21,7 +21,7 @@ public class User extends MySQLDBOperation {
     public ResultSet allDonor() throws SQLException {
         ResultSet data;
 
-        query = "SELECT * FROM `"+ table +"` WHERE `role` = 'donor'";
+        query = "SELECT * FROM `"+ table +"` WHERE `role` = 'donor' ORDER BY id DESC";
         statement = con.prepareStatement(query);
         data = statement.executeQuery();
         return data;
@@ -60,17 +60,13 @@ public class User extends MySQLDBOperation {
     public String authenticate() throws SQLException {
         String user = "NOT_EXIST";
         query = "SELECT * FROM `"+ table +"` WHERE email = '"+ email +"' AND password = '" + password +"' LIMIT 1";
-//        print(query);
         statement = con.prepareStatement(query);
         data = statement.executeQuery();
 
         if(data.next()){
             user = data.getString(2) + ";" + data.getString(3) + ";" + data.getString(5)+ ";" + data.getString(6) + ";" + data.getString(7) + ";" + data.getString(8) + ";" + data.getString(9);
-//            print(user);
-            return user;
-        }else{
-            return user;
         }
+        return user;
 
     }
 }
