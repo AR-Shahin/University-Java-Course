@@ -93,7 +93,7 @@ public class DashboardController implements HasData, Initializable {
                         + result.getString(6)+ "\t"
                         + result.getString(7)+ "\n"
                 ;
-                System.out.println(result.getString(2));
+//                System.out.println(result.getString(2));
             }
             this.setDonorsData(data);
         }else {
@@ -107,12 +107,15 @@ public class DashboardController implements HasData, Initializable {
     }
 
     @FXML
-    void handleDonorClearOperation(ActionEvent event) {
-
+    void handleDonorClearOperation(ActionEvent event) throws SQLException {
+        this.searchDonor.setText("");
+        ResultSet result = this.user.allDonor();
+        this.modifyDataToDisplay(result);
     }
 
     @FXML
-    void handleDonorSearchOperation(ActionEvent event) {
-
+    void handleDonorSearchOperation(ActionEvent event) throws SQLException {
+        ResultSet result = this.user.searchDonor(searchDonor.getText());
+        this.modifyDataToDisplay(result);
     }
 }

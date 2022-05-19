@@ -26,7 +26,14 @@ public class User extends MySQLDBOperation {
         data = statement.executeQuery();
         return data;
     }
-
+    public ResultSet searchDonor(String blood) throws SQLException {
+        ResultSet data;
+        query = "SELECT * FROM `"+ table +"` WHERE `role` = 'donor' AND `blood` = '"+ blood +"' ORDER BY id DESC";
+        query = "SELECT * FROM users";
+        statement = con.prepareStatement(query);
+        data = statement.executeQuery();
+        return data;
+    }
     public boolean addDonor() throws SQLException {
         query = "INSERT INTO `users` (`name`, `email`, `password`, `age`, `phone`, `blood`, `status`, `role`) VALUES (? ,? ,?,?,?,?,?,?)";
         statement = con.prepareStatement(query);
