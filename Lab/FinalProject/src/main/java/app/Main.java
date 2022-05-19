@@ -10,8 +10,8 @@ public class Main{
     public static void main(String[] args) throws SQLException {
         Application app = new Application();
         app.startApp();
-        User user = new User();
-        user.findDonor(3);
+//        User user = new User();
+//        user.findDonor(3);
 //        user.addDonor();
 //        ResultSet res = user.allDonor();
 //        try {

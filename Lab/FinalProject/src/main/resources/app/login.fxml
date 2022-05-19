@@ -6,11 +6,11 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LoginController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #ff7979;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LoginController">
    <children>
-      <Label layoutX="265.0" layoutY="65.0" text="Login">
+      <Label layoutX="263.0" layoutY="64.0" text="Login">
          <font>
-            <Font size="26.0" />
+            <Font size="27.0" />
          </font>
       </Label>
       <Label layoutX="152.0" layoutY="138.0" text="Email" />
@@ -20,5 +20,6 @@
       <Button layoutX="235.0" layoutY="207.0" mnemonicParsing="false" onAction="#handleLogin" text="Login" />
       <Button layoutX="300.0" layoutY="207.0" mnemonicParsing="false" onAction="#openDonorRegistrationScene" text="Donor" />
       <Button layoutX="370.0" layoutY="207.0" mnemonicParsing="false" onAction="#dash" text="Dashboard" />
+      <Label fx:id="notification" layoutX="282.0" layoutY="270.0" />
    </children>
 </AnchorPane>

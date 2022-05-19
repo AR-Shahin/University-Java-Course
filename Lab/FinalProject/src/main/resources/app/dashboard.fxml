@@ -23,17 +23,17 @@
          <center>
             <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <children>
-                  <Pane fx:id="homePane" prefHeight="400.0" prefWidth="509.0" style="-fx-background-color: red;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <Pane fx:id="homePane" prefHeight="400.0" prefWidth="509.0" style="-fx-background-color: #95afc0;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
                         <Label layoutX="136.0" layoutY="21.0" text="Admin Dashboard">
                            <font>
                               <Font size="23.0" />
                            </font>
                         </Label>
-                        <TextArea fx:id="display" layoutX="139.0" layoutY="62.0" prefHeight="200.0" prefWidth="200.0" />
+                        <TextArea fx:id="display" layoutY="62.0" prefHeight="339.0" prefWidth="509.0" />
                      </children>
                   </Pane>
-                  <Pane fx:id="donorPane" prefHeight="400.0" prefWidth="509.0" style="-fx-background-color: green;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                  <Pane fx:id="donorPane" prefHeight="400.0" prefWidth="509.0" style="-fx-background-color: #c7ecee;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                </children>
             </AnchorPane>
          </center>
