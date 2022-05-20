@@ -46,6 +46,9 @@ public class LoginController {
                 } else if (role.equals("donor")) {
                     this.app.changeScreen(event,"donor_dashboard","Donor dashboard",true,result);
                 }
+                else if (role.equals("user")) {
+                    this.app.changeScreen(event,"user_dashboard","User dashboard",true,result);
+                }
             }
         }
     }
@@ -61,6 +64,6 @@ public class LoginController {
 
     @FXML
     public void dash(ActionEvent event) throws Exception {
-        this.app.changeScreen(event,"donor_dashboard","Donor dashboard",false,"");
+        this.app.changeScreen(event,"user_dashboard","Donor dashboard",false,"");
     }
 }
