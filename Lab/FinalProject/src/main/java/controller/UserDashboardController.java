@@ -24,4 +24,8 @@ public class UserDashboardController extends Utility implements HasData {
         this.data = data;
         display.setText(this.modifyDataToDisplay(this.data));
     }
+
+    public void requestForBlood(ActionEvent event){
+
+    }
 }

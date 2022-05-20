@@ -9,12 +9,11 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.RegistrationController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #00b894;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.RegistrationController">
    <children>
       <Label layoutX="170.0" layoutY="108.0" text="Name" />
       <TextField fx:id="name" layoutX="246.0" layoutY="107.0" />
-      <Label layoutX="179.0" layoutY="48.0" text="Registraion For Donor">
+      <Label layoutX="245.0" layoutY="48.0" text="Registraion">
          <font>
             <Font size="22.0" />
          </font>
@@ -31,22 +30,17 @@
          </toggleGroup>
       </RadioButton>
       <Label layoutX="170.0" layoutY="228.0" text="Blood Group" />
-      <RadioButton layoutX="309.0" layoutY="228.0" mnemonicParsing="false" text="A-">
+      <RadioButton layoutX="309.0" layoutY="228.0" mnemonicParsing="false" text="A-" toggleGroup="$blood" />
+      <RadioButton layoutX="398.0" layoutY="229.0" mnemonicParsing="false" text="B-" toggleGroup="$blood" />
+      <RadioButton layoutX="352.0" layoutY="229.0" mnemonicParsing="false" text="B+" toggleGroup="$blood" />
+      <Button layoutX="170.0" layoutY="285.0" mnemonicParsing="false" text="Register" />
+      <Button layoutX="258.0" layoutY="286.0" mnemonicParsing="false" onAction="#goToLoginScene" text="Login" />
+      <Label layoutX="170.0" layoutY="252.0" text="Type" />
+      <RadioButton fx:id="donorType" layoutX="247.0" layoutY="254.0" mnemonicParsing="false" text="Donor">
          <toggleGroup>
-            <ToggleGroup fx:id="blood1" />
+            <ToggleGroup fx:id="type" />
          </toggleGroup>
       </RadioButton>
-      <RadioButton layoutX="398.0" layoutY="229.0" mnemonicParsing="false" text="B-">
-         <toggleGroup>
-            <ToggleGroup fx:id="blood11" />
-         </toggleGroup>
-      </RadioButton>
-      <RadioButton layoutX="352.0" layoutY="229.0" mnemonicParsing="false" text="B+">
-         <toggleGroup>
-            <ToggleGroup fx:id="blood111" />
-         </toggleGroup>
-      </RadioButton>
-      <Button layoutX="172.0" layoutY="258.0" mnemonicParsing="false" text="Register" />
-      <Button layoutX="258.0" layoutY="258.0" mnemonicParsing="false" onAction="#goToLoginScene" text="Login" />
+      <RadioButton fx:id="userType" layoutX="320.0" layoutY="254.0" mnemonicParsing="false" text="User" toggleGroup="$type" />
    </children>
 </AnchorPane>

@@ -5,6 +5,7 @@ import interfaces.HasData;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.PasswordField;
+import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 
@@ -15,27 +16,17 @@ public class RegistrationController implements HasData {
         this.app = new Application();
     }
     @FXML
-    private TextField name;
-    @FXML
-    private TextField age;
+    private TextField age,email,name;
 
     @FXML
-    private ToggleGroup blood;
-
-    @FXML
-    private ToggleGroup blood1;
-
-    @FXML
-    private ToggleGroup blood11;
-
-    @FXML
-    private ToggleGroup blood111;
-
-    @FXML
-    private TextField email;
+    private RadioButton donorType,userType;
 
     @FXML
     private PasswordField password;
+
+    @FXML
+    private ToggleGroup type,blood;
+
 
     @FXML
     void goToLoginScene(ActionEvent event) throws Exception {
