@@ -55,7 +55,7 @@ public class LoginController {
 
     @FXML
     public void openDonorRegistrationScene(ActionEvent event) throws Exception{
-        this.app.changeScreen(event,"registration","Registration",true,"Regis");
+        this.app.changeScreen(event,"registration","Registration",false,"");
     }
     public void print(Object obj){
 

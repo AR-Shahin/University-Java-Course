@@ -10,14 +10,8 @@ public class User extends MySQLDBOperation {
         this.connect();
     }
     ResultSet data;
-    private String table = "users";
-    private String query;
-    protected String name;
-    public String email;
-    protected String age;
-    protected String blood;
-    public String password;
-    protected String phone;
+    private String table = "users",query;
+    public String name,email,age,blood,password,phone,type;
     public ResultSet allDonor() throws SQLException {
         ResultSet data;
 
@@ -35,6 +29,8 @@ public class User extends MySQLDBOperation {
         return data;
     }
     public boolean addDonor() throws SQLException {
+//        print(name+email+password+age+phone+blood+type);
+
         query = "INSERT INTO `users` (`name`, `email`, `password`, `age`, `phone`, `blood`, `status`, `role`) VALUES (? ,? ,?,?,?,?,?,?)";
         statement = con.prepareStatement(query);
         statement.setString(1,name);
@@ -44,8 +40,8 @@ public class User extends MySQLDBOperation {
         statement.setString(5,phone);
         statement.setString(6,blood);
         statement.setString(7,"active");
-        statement.setString(8,"donor");
-        if(statement.execute()){
+        statement.setString(8,type);
+        if(!statement.execute()){
             return true;
         }else {
             return false;
