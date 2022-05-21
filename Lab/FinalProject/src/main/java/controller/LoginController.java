@@ -40,7 +40,7 @@ public class LoginController {
             if(result.equals("NOT_EXIST")){
                 setNotification("User doesn't exists!!");
             }else {
-                String role = result.split(";")[6];
+                String role = result.split(";")[7];
                 if(role.equals("admin")){
                     this.app.changeScreen(event,"dashboard","Dashboard",true,result);
                 } else if (role.equals("donor")) {
