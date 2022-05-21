@@ -10,13 +10,16 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.Pane;
+import model.BloodRequest;
 
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class UserDashboardController extends Utility implements HasData, Initializable {
     @FXML
     private Application app;
+    private BloodRequest bloodRequest;
     protected String data,bloodType;
     @FXML
     private ToggleGroup blood;
@@ -36,6 +39,7 @@ public class UserDashboardController extends Utility implements HasData, Initial
     }
     public UserDashboardController(){
         this.app = new Application();
+        this.bloodRequest = new BloodRequest();
     }
     @FXML
     void handleLogout(ActionEvent event) throws Exception {
@@ -54,6 +58,19 @@ public class UserDashboardController extends Utility implements HasData, Initial
     @FXML
     public void handleBloodRequest(ActionEvent event) {
         this.setBloodType();
+        int id = Integer.parseInt(this.data.split(";")[0]);
+        this.bloodRequest.user_id = id;
+        this.bloodRequest.blood = this.bloodType;
+        this.bloodRequest.status = true;
+        try {
+            if(this.bloodRequest.store()){
+                print("REQUEST SENT");
+            }else {
+                print("Errr");
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
         print(this.bloodType + this.data.split(";")[0]);
     }
 

@@ -21,12 +21,12 @@ public class Main{
 //        user.findDonor(3);
 //        user.addDonor();
         ResultSet res = b.all();
-        try {
-            while (res.next()){
-                System.out.println(res.getString(2));
-            }
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
+//        try {
+//            while (res.next()){
+//                System.out.println(res.getString(2));
+//            }
+//        } catch (SQLException e) {
+//            throw new RuntimeException(e);
+//        }
     }
 }
