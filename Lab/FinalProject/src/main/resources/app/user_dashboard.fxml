@@ -2,7 +2,9 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.Pane?>
@@ -40,6 +42,15 @@
                               <Font size="21.0" />
                            </font>
                         </Label>
+                         <Label layoutX="96.0" layoutY="160.0" text="Select Blood Group" />
+                         <RadioButton layoutX="289.0" layoutY="161.0" mnemonicParsing="false" text="A-">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="blood" />
+                           </toggleGroup></RadioButton>
+                         <RadioButton layoutX="374.0" layoutY="161.0" mnemonicParsing="false" text="B-" toggleGroup="$blood" />
+                         <RadioButton layoutX="329.0" layoutY="160.0" mnemonicParsing="false" text="B+" toggleGroup="$blood" />
+                        <RadioButton layoutX="244.0" layoutY="160.0" mnemonicParsing="false" selected="true" text="A+" toggleGroup="$blood" />
+                        <Button layoutX="193.0" layoutY="213.0" mnemonicParsing="false" onAction="#handleBloodRequest" text="Send Request" />
                      </children>
                   </Pane>
                     </children>
