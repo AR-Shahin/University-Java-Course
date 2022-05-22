@@ -52,7 +52,7 @@ public class DonorDashboardController extends Utility implements HasData, Initia
     }
 
     private String donorBloodRequests(){
-        String data = "";
+        String data = "Empty!!";
         String blood = this.data.split(";")[5];
 
         ResultSet res = this.bloodRequest.getUserBloodRequests(blood);
