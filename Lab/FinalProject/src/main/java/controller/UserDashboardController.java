@@ -13,6 +13,7 @@ import javafx.scene.layout.Pane;
 import model.BloodRequest;
 
 import java.net.URL;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
@@ -24,23 +25,51 @@ public class UserDashboardController extends Utility implements HasData, Initial
     @FXML
     private ToggleGroup blood;
     @FXML
-    private TextArea display;
+    private TextArea display,myRequests;
 
     @FXML
-    private Pane bloodPane,homePane;
+    private Pane bloodPane,homePane,requestPane;
+    public UserDashboardController(){
+        this.app = new Application();
+        this.bloodRequest = new BloodRequest();
+    }
     public void initialize(URL url, ResourceBundle resourceBundle){
 
         bloodPane.setVisible(false);
+        requestPane.setVisible(false);
+    }
+    @FXML
+    void goToRequestPane(ActionEvent event) {
+        requestPane.setVisible(true);
+        homePane.setVisible(false);
+        bloodPane.setVisible(false);
+        this.myRequests.setText(this.getMyRequests());
+    }
+
+    private String getMyRequests(){
+        String data = "Empty!!";
+        int id = Integer.parseInt(this.data.split(";")[0]);
+
+        ResultSet res = this.bloodRequest.getUserBloodRequests(id);
+        try {
+            if(res.next()){
+                data  = "";
+            }
+            while (res.next()){
+                data += res.getString("id") + "\t" + res.getString("blood") + "\n";
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return data;
     }
     @FXML
     public void goToHome(ActionEvent event) {
         homePane.setVisible(true);
         bloodPane.setVisible(false);
+        requestPane.setVisible(false);
     }
-    public UserDashboardController(){
-        this.app = new Application();
-        this.bloodRequest = new BloodRequest();
-    }
+
     @FXML
     void handleLogout(ActionEvent event) throws Exception {
         this.app.changeScreen(event,"login","Login",false,"");
@@ -53,6 +82,7 @@ public class UserDashboardController extends Utility implements HasData, Initial
     public void requestForBlood(ActionEvent event){
         homePane.setVisible(false);
         bloodPane.setVisible(true);
+        requestPane.setVisible(false);
     }
 
     @FXML
@@ -64,6 +94,7 @@ public class UserDashboardController extends Utility implements HasData, Initial
         this.bloodRequest.status = true;
         try {
             if(this.bloodRequest.store()){
+                this.goToRequestPane(event);
                 print("REQUEST SENT");
             }else {
                 print("Errr");
@@ -71,7 +102,6 @@ public class UserDashboardController extends Utility implements HasData, Initial
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        print(this.bloodType + this.data.split(";")[0]);
     }
 
     protected void setBloodType(){

@@ -50,7 +50,7 @@ public class DonorDashboardController extends Utility implements HasData, Initia
         requestDisplay.setText(this.donorBloodRequests());
 
     }
-
+    @FXML
     private String donorBloodRequests(){
         String data = "Empty!!";
         String blood = this.data.split(";")[5];
