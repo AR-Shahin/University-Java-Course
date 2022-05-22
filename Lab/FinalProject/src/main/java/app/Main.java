@@ -20,7 +20,7 @@ public class Main{
 //        User user = new User();
 //        user.findDonor(3);
 //        user.addDonor();
-        ResultSet res = b.all();
+//        ResultSet res = b.all();
 //        try {
 //            while (res.next()){
 //                System.out.println(res.getString(2));

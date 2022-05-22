@@ -45,7 +45,7 @@ public class BloodRequest extends MySQLDBOperation {
     public ResultSet getUserBloodRequests(String blood){
         ResultSet data;
 
-        query = "SELECT * FROM `"+ this.table +"` WHERE `blood` = '" + blood + "' ORDER BY id DESC";
+        query = "SELECT users.id,users.name,users.email,blood_request.blood FROM blood_request LEFT JOIN users ON blood_request.user_id = users.id WHERE blood_request.blood = '" + blood + "' ORDER BY id DESC";
         try {
             statement = con.prepareStatement(query);
             data = statement.executeQuery();
@@ -58,7 +58,7 @@ public class BloodRequest extends MySQLDBOperation {
     public ResultSet all(){
         ResultSet data;
 
-        query = "SELECT * FROM `"+ this.table + "` ORDER BY id DESC";
+        query = "SELECT users.id,users.name,blood_request.* FROM blood_request INNER JOIN users ON users.id = blood_request.user_id";
         try {
             statement = con.prepareStatement(query);
             data = statement.executeQuery();

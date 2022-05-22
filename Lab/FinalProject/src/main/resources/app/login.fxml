@@ -19,7 +19,6 @@
       <TextField fx:id="password" layoutX="235.0" layoutY="167.0" prefHeight="24.0" prefWidth="193.0" />
       <Button layoutX="235.0" layoutY="207.0" mnemonicParsing="false" onAction="#handleLogin" text="Login" />
       <Button layoutX="300.0" layoutY="207.0" mnemonicParsing="false" onAction="#openDonorRegistrationScene" text="Registration" />
-      <Button layoutX="399.0" layoutY="207.0" mnemonicParsing="false" onAction="#dash" text="Dashboard" />
       <Label fx:id="notification" layoutX="282.0" layoutY="270.0" />
    </children>
 </AnchorPane>
