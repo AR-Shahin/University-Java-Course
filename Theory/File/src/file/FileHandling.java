@@ -9,6 +9,10 @@ public class FileHandling {
     protected ArrayList<Integer> intDatabase = new ArrayList<>();
     protected ArrayList<String> stringDatabase = new ArrayList<>();
     protected int index = -1;
+
+    private final int max_size = 7;
+    protected int arr[] = new int[max_size];
+
     public void setDataIntoFile(String data){
         File file = new File("output.txt");
 
@@ -90,5 +94,65 @@ public class FileHandling {
         }
 
         System.out.println("Vowel is : " + vowel);
+    }
+
+    public void fileRead(){
+        File file = new File("foo.txt");
+        int index = -1;
+        if(file.exists()){
+            try{
+                Scanner sc = new Scanner(file);
+                while (sc.hasNextLine()){
+                    String data = sc.nextLine();
+                    this.arr[++index] = Integer.parseInt(data);
+                }
+            }catch (Exception e){
+                System.out.println(e.getMessage());
+            }
+        }else{
+            System.out.println("File Not Found!");
+        }
+    }
+
+    public void findMinMaxAvg(){
+        int max = this.arr[0];
+        int min = this.arr[0];
+        int sum = 0;
+        for(int i = 0;i<this.max_size;i++){
+            if(max < this.arr[i]){
+                max = this.arr[i];
+            }
+
+            if(min > this.arr[i]){
+                min = this.arr[i];
+            }
+
+            sum += this.arr[i];
+        }
+
+        String format = "Max = " + max
+                + "\nMin = " + min
+               + "\nAvg = " + sum/(double)this.max_size +"\n";
+        this.storeInFile(format);
+    }
+
+    public void storeInFile(String data){
+        File file = new File("bar.txt");
+
+        if(!file.exists()){
+            try{
+                file.createNewFile();
+            }catch (Exception e){
+                System.out.println(e.getMessage());
+            }
+        }else {
+            try{
+                FileWriter fileWriter = new FileWriter("bar.txt",true);
+                fileWriter.write(data);
+                fileWriter.close();
+            }catch (Exception e){
+                System.out.println(e.getMessage());
+            }
+        }
     }
 }

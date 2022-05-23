@@ -6,8 +6,11 @@ public class Main {
 
 //        String data = "10,20,8,40,50";
 //        file.setDataIntoFile(data);
-        file.getDataFromFile();
-        file.checkHowManyVowels();
+//        file.getDataFromFile();
+//        file.checkHowManyVowels();
+
+        file.fileRead();
+        file.findMinMaxAvg();
 
     }
 }
