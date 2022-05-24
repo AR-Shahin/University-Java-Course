@@ -57,6 +57,10 @@ public class DonorDashboardController extends Utility implements HasData, Initia
 
         ResultSet res = this.bloodRequest.getUserBloodRequests(blood);
         try {
+            if(res.next()){
+                data  = "";
+            }
+            data += res.getString("name") + "\t" + res.getString("email") + "\n";
             while (res.next()){
                 data += res.getString("name") + "\t" + res.getString("email") + "\n";
             }
