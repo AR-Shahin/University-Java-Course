@@ -1,4 +1,5 @@
 import dhaka.DCircle;
+import file.FileHandling;
 import opp.Animal;
 import opp.AnotherMath;
 import opp.Dog;
@@ -10,19 +11,11 @@ public class Main {
 
     public static void main(String args[]){
 
-//        Animal dog = new Animal("Dog");
-//        Animal cat = new Animal("Cat");
-//
-//        dog.size = 100;
-//        cat.display();
-//        dog.display();
-//        System.out.println(cat.size);
-//
-//        Dog d1 = new Dog("Dog 1");
-//        d1.canSound();
 
-        AnotherMath math = new AnotherMath();
-        math.add(10,2);
+        FileHandling fileHandling = new FileHandling();
+        String data = " Happy";
+//        fileHandling.setDataInFile(data);
+        fileHandling.getDataFromFile();
 
     }
 }
