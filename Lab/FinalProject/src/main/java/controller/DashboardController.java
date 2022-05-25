@@ -124,7 +124,26 @@ public class DashboardController extends Utility implements HasData, Initializab
 
     @FXML
     void handleChangePassword(ActionEvent event) {
-        this.setAlert("WARNING","g","G","G");
+
+        String dbPass = this.data.split(";")[8];
+        String oldPass = this.oldPass.getText();
+        String newPass = this.newPass.getText();
+        String conPass = this.confirmPass.getText();
+
+        if(oldPass == "" ||  newPass == "" || conPass == ""){
+            this.setAlert("WARNING","Warning!","Field Must not be empty!","Please Enter Value!");
+        }else{
+            if(!newPass.equals(conPass)){
+                this.setAlert("WARNING","Warning!","New Password and Confirm new Password is not matching","Please Enter Correctly.");
+            }
+             else if(Integer.parseInt(dbPass) == Integer.parseInt(oldPass)){
+                print("ok");
+            }else{
+                this.setAlert("WARNING","Warning!","Old Password didn't match!!","Please Enter Correctly.");
+            }
+        }
+
+
     }
 
 }
