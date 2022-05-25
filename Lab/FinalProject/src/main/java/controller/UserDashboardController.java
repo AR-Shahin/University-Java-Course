@@ -54,8 +54,9 @@ public class UserDashboardController extends Utility implements HasData, Initial
         try {
             if(res.next()){
                 data  = "";
+//                data += res.getString("name") + "\t" + res.getString("email") + "\n";
             }
-            data += res.getString("name") + "\t" + res.getString("email") + "\n";
+
             while (res.next()){
                 data += res.getString("id") + "\t" + res.getString("blood") + "\n";
             }

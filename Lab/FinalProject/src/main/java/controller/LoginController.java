@@ -5,6 +5,7 @@ import database.MySQLDBOperation;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import model.User;
 
@@ -20,7 +21,7 @@ public class LoginController {
     private TextField email;
 
     @FXML
-    private TextField password;
+    private PasswordField password;
 
     public void setNotification(String notification) {
         this.notification.setText(notification);
