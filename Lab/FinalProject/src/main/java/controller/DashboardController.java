@@ -123,8 +123,9 @@ public class DashboardController extends Utility implements HasData, Initializab
 
 
     @FXML
-    void handleChangePassword(ActionEvent event) {
+    void handleChangePassword(ActionEvent event) throws SQLException {
 
+        int userId = Integer.parseInt(this.data.split(";")[0]);
         String dbPass = this.data.split(";")[8];
         String oldPass = this.oldPass.getText();
         String newPass = this.newPass.getText();
@@ -137,7 +138,12 @@ public class DashboardController extends Utility implements HasData, Initializab
                 this.setAlert("WARNING","Warning!","New Password and Confirm new Password is not matching","Please Enter Correctly.");
             }
              else if(Integer.parseInt(dbPass) == Integer.parseInt(oldPass)){
-                print("ok");
+                if(this.user.changePassword(newPass,userId)){
+                    this.setAlert("INFORMATION","Information!","Password has been changed!!","Password change successfully!.");
+                    this.goToHomeScene(event);
+                }else{
+                    this.setAlert("WARNING","Warning!","Something went wrong!","500 server side error!");
+                }
             }else{
                 this.setAlert("WARNING","Warning!","Old Password didn't match!!","Please Enter Correctly.");
             }

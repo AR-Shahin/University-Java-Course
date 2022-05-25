@@ -69,8 +69,17 @@ public class User extends MySQLDBOperation {
         if(data.next()){
             user =data.getString(1) + ";" + data.getString(2) + ";" + data.getString(3) + ";" + data.getString(5)+ ";" + data.getString(6) + ";" + data.getString(7) + ";" + data.getString(8) + ";" + data.getString(9)+ ";" + data.getString(4);
         }
-//        print(user);
         return user;
+    }
 
+    public boolean changePassword(String password,int userId) throws SQLException {
+        query = "UPDATE "+ this.table + " SET password='"+password+"' WHERE id='"+userId+"'";
+        statement = con.prepareStatement(query);
+        int res = statement.executeUpdate();
+
+        if(res == 1){
+            return true;
+        }
+        return false;
     }
 }
