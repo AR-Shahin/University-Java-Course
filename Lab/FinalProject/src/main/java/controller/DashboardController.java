@@ -6,6 +6,7 @@ import interfaces.HasData;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
@@ -24,6 +25,11 @@ public class DashboardController extends Utility implements HasData, Initializab
         this.app = new Application();
         this.user = new User();
     }
+    @FXML
+    private PasswordField newPass,oldPass,confirmPass;
+
+    @FXML
+    private Pane passwordPane;
     protected String data;
     @FXML
     private TextArea display;
@@ -53,6 +59,7 @@ public class DashboardController extends Utility implements HasData, Initializab
 
     public void initialize(URL url, ResourceBundle resourceBundle){
         donorPane.setVisible(false);
+        passwordPane.setVisible(false);
     }
 
     @FXML
@@ -64,6 +71,7 @@ public class DashboardController extends Utility implements HasData, Initializab
     public void goToDonorScene(ActionEvent event) throws SQLException {
         donorPane.setVisible(true);
         homePane.setVisible(false);
+        passwordPane.setVisible(false);
         ResultSet result = this.user.allDonor();
         this.modifyDataToDisplay(result);
     }
@@ -92,8 +100,14 @@ public class DashboardController extends Utility implements HasData, Initializab
     public void goToHomeScene(ActionEvent event){
         donorPane.setVisible(false);
         homePane.setVisible(true);
+        passwordPane.setVisible(false);
     }
-
+    @FXML
+    public void goToPasswordScene(ActionEvent event){
+        donorPane.setVisible(false);
+        homePane.setVisible(false);
+        passwordPane.setVisible(true);
+    }
     @FXML
     void handleDonorClearOperation(ActionEvent event) throws SQLException {
         this.searchDonor.setText("");
@@ -106,4 +120,11 @@ public class DashboardController extends Utility implements HasData, Initializab
         ResultSet result = this.user.searchDonor(searchDonor.getText());
         this.modifyDataToDisplay(result);
     }
+
+
+    @FXML
+    void handleChangePassword(ActionEvent event) {
+        this.setAlert("WARNING","g","G","G");
+    }
+
 }
