@@ -5,6 +5,9 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
 
+// for (int i = 0;i< data.length();i++){
+//        temp = data.split(String.valueOf(ch));
+//        }
 public class FileHandling {
 
     private int arr[] = new int[5];

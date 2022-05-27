@@ -1,1 +1,3 @@
-Max : 50
+Line = 3
+Word = 15
+Vowel = 6
