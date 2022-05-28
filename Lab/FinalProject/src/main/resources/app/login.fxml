@@ -19,7 +19,7 @@
       <Label layoutX="152.0" layoutY="171.0" text="Password" />
       <Button layoutX="235.0" layoutY="207.0" mnemonicParsing="false" onAction="#handleLogin" text="Login" />
       <Button layoutX="300.0" layoutY="207.0" mnemonicParsing="false" onAction="#openDonorRegistrationScene" text="Registration" />
-      <Label fx:id="notification" layoutX="282.0" layoutY="270.0" />
+      <Label fx:id="notification" layoutX="152.0" layoutY="270.0" prefHeight="16.0" prefWidth="321.0" />
       <PasswordField fx:id="password" layoutX="235.0" layoutY="167.0" prefHeight="24.0" prefWidth="193.0" />
    </children>
 </AnchorPane>

@@ -56,6 +56,7 @@ public class RegistrationController extends Utility implements HasData {
         this.user.blood = this.bloodType;
         this.user.type = this.userTypeData;
 
+
         if(this.user.addDonor()){
             app.changeScreen(event,"login","Login",false,"");
         }else{
@@ -63,6 +64,8 @@ public class RegistrationController extends Utility implements HasData {
         }
 
     }
+
+
     protected void setUserTypeData(){
         RadioButton selectedRadioButton = (RadioButton) type.getSelectedToggle();
         String data = selectedRadioButton.getText();
