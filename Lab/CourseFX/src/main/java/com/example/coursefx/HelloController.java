@@ -70,4 +70,19 @@ public class HelloController {
         stage.setScene(scene);
         stage.show();
     }
+
+    @FXML
+    void changeWindow(ActionEvent event) throws IOException {
+
+        Stage stage = new Stage();
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("new-window.fxml"));
+
+        Scene scene = new Scene(fxmlLoader.load());
+        stage.setTitle("New Window");
+
+        stage.setScene(scene);
+
+        stage.show();
+
+    }
 }
