@@ -1,8 +1,11 @@
 package com.example.coursefx;
 
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
@@ -24,7 +27,7 @@ public class HelloController {
     private Label title;
 
     @FXML
-    private TextField nameField,emailField,phoneField;
+    private TextField nameField,emailField,phoneField,inputField;
     @FXML
     protected void onHelloButtonClick() {
         welcomeText.setText("Welcome to JavaFX Application!");
@@ -83,6 +86,38 @@ public class HelloController {
         stage.setScene(scene);
 
         stage.show();
+    }
+
+    public void test(Event evt, String path, String title, boolean hasData, String data) throws Exception
+    {
+        path = path + ".fxml";
+        FXMLLoader loader=new FXMLLoader();
+        Stage stage=(Stage)((Node)evt.getSource()).getScene().getWindow();
+        Parent root = loader.load(getClass().getResource(path).openStream());
+//        if(hasData){
+//            HasData dataObj =(HasData) loader.getController();
+//            dataObj.sendData(data);
+//        }
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.setTitle(title);
+        stage.show();
 
     }
+
+    @FXML
+    void handleAnalysisButton(ActionEvent event) throws IOException {
+        String data = inputField.getText();
+        FXMLLoader loader = new FXMLLoader();
+        Stage stage = (Stage)( (Node) event.getSource()).getScene().getWindow();
+        Parent root = loader.load(getClass().getResource("another.fxml").openStream());
+        AnotherController an = (AnotherController) loader.getController();
+        an.setData(data);
+        Scene scene = new Scene(root);
+        stage.setTitle("Another Page");
+        stage.setScene(scene);
+        stage.show();
+    }
+
+
 }
