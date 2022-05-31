@@ -1,5 +1,6 @@
 package com.example.coursefx;
 
+import helper.Utility;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXML;
@@ -15,7 +16,11 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class HelloController {
+public class HelloController extends Utility{
+    Utility utility;
+    public HelloController(){
+        this.utility = new Utility();
+    }
     @FXML
     private AnchorPane mainPane;
     @FXML
@@ -108,16 +113,33 @@ public class HelloController {
     @FXML
     void handleAnalysisButton(ActionEvent event) throws IOException {
         String data = inputField.getText();
+     changeScene(event,"another.fxml");
+//        utility.changeScene(event,"another.fxml","D");
+//        FXMLLoader loader = new FXMLLoader();
+//        Stage stage = (Stage)( (Node) event.getSource()).getScene().getWindow();
+//        Parent root = loader.load(getClass().getResource("another.fxml").openStream());
+//        AnotherController an = (AnotherController) loader.getController();
+//        an.setData(data);
+//        Scene scene = new Scene(root);
+//        stage.setTitle("Another Page");
+//        stage.setScene(scene);
+//        stage.show();
+    }
+
+    public void fuck(Event event,String path){
         FXMLLoader loader = new FXMLLoader();
         Stage stage = (Stage)( (Node) event.getSource()).getScene().getWindow();
-        Parent root = loader.load(getClass().getResource("another.fxml").openStream());
-        AnotherController an = (AnotherController) loader.getController();
-        an.setData(data);
+        Parent root = null;
+        try {
+            root = loader.load(getClass().getResource(path).openStream());
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
         Scene scene = new Scene(root);
         stage.setTitle("Another Page");
         stage.setScene(scene);
         stage.show();
     }
-
 
 }

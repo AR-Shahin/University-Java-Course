@@ -13,14 +13,19 @@ import java.io.IOException;
 
 public class Utility{
     @FXML
-    public void changeScene(Event event, String path, String title) throws IOException {
-        FXMLLoader loader=new FXMLLoader();
-        Stage stage=(Stage)((Node)event.getSource()).getScene().getWindow();
-        Parent root = loader.load(getClass().getResource(path).openStream());
+    public void changeScene(Event event, String path) throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        Stage stage = (Stage)( (Node) event.getSource()).getScene().getWindow();
+        Parent root = null;
+        try {
+            root = loader.load(getClass().getResource(path).openStream());
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
 
         Scene scene = new Scene(root);
+        stage.setTitle("Another Page");
         stage.setScene(scene);
-        stage.setTitle(title);
         stage.show();
     }
 }
